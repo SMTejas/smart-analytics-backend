@@ -3,6 +3,8 @@ const router = express.Router();
 const upload = require('../middleware/upload');
 const { authenticateToken } = require('../middleware/auth');
 const { uploadFile, getUserFiles, getFileData, deleteFile } = require('../controllers/uploadController');
+const multer = require('multer');
+const upload = multer({ storage: multer.memoryStorage() });
 
 // All routes require authentication
 router.use(authenticateToken);
